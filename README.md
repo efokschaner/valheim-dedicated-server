@@ -42,7 +42,7 @@ docker push us.gcr.io/$(gcloud config get-value project)/valheim-server
 # In the following command, specify VALHEIM_SERVER_DISPLAY_NAME, VALHEIM_SERVER_PASSWORD, and VALHEIM_WORLD_NAME as desired
 gcloud compute instances create-with-container valheim-001 `
     --container-image us.gcr.io/$(gcloud config get-value project)/valheim-server:latest `
-    --machine-type e2-highcpu-4 `
+    --machine-type e2-standard-2 `
     --boot-disk-size 10GB `
     --zone us-west1-b `
     --network-tier STANDARD `
@@ -76,7 +76,7 @@ docker kill <container id>
 gcloud compute scp "C:\Users\<YOUR_USER>\AppData\LocalLow\IronGate\Valheim\worlds\<YOUR_WORLD_NAME>.*" chronos@valheim-001:/mnt/stateful_partition/valheim-worlds
 ```
 
-### Restart instance to restart container runner
+#### Restart instance to restart container runner
 ```
 gcloud compute ssh valheim-001
 sudo shutdown -r now
