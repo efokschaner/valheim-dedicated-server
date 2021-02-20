@@ -1,0 +1,3 @@
+#cloud-config
+runcmd:
+- mkdir -m ugo=rwx /mnt/stateful_partition/valheim-worlds
