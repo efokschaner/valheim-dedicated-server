@@ -1,6 +1,7 @@
 FROM cm2network/steamcmd:latest
 
-RUN /home/steam/steamcmd/steamcmd.sh +login anonymous +force_install_dir /home/steam/valheim +app_update 896660 validate +exit
+# run docker build with `--no-cache` to force the steam install to patch up the latest version
+RUN  /home/steam/steamcmd/steamcmd.sh +login anonymous +force_install_dir /home/steam/valheim +app_update 896660 validate +exit
 
 WORKDIR /home/steam/valheim
 
